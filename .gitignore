@@ -50,3 +50,10 @@ modules.order
 Module.symvers
 Mkfile.old
 dkms.conf
+
+# vscode
+settings.json
+
+# Project build results
+Gauss-Seidel/build/*
+Gauss-Seidel/build/main
