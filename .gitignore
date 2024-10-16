@@ -57,3 +57,4 @@ settings.json
 # Project build results
 Gauss-Seidel/build/*
 Gauss-Seidel/build/main
+Jacobi/build
