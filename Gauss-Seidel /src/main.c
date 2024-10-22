@@ -49,16 +49,59 @@ void gaussSeidel(double A[N][N], double b[N], double x[N]) {
 }
 
 int main() {
-    double A[N][N] = {{4, -1, 0}, {-1, 4, -1}, {0, -1, 4}};
-    double b[N] = {15, 10, 10};
-    double x[N] = {0, 0, 0};  // 初始猜测值
+    int n;
+    printf("Enter the dimension of the system (N): ");
+    scanf("%d", &n);
+    if (n != N) {
+        printf("Error: The dimension of the system must be %d.\n", N);
+        return 1;
+    }
+
+    double **A = (double **)malloc(n * sizeof(double *));
+    double *b = (double *)malloc(n * sizeof(double));
+    double *x = (double *)malloc(n * sizeof(double));
+
+    for (int i = 0; i < n; i++) {
+        A[i] = (double *)malloc(n * sizeof(double));
+        
+
+
+
+        
+
+    }
+
+    printf("Enter the coefficients of matrix A:\n");
+    for (int i = 0; i < n; i++) {
+        for (int j = 0; j < n; j++) {
+            scanf("%lf", &A[i][j]);
+        }
+    }
+
+    printf("Enter the constants vector b:\n");
+    for (int i = 0; i < n; i++) {
+        scanf("%lf", &b[i]);
+    }
+
+    printf("Enter initial guess for x:\n");
+    for (int i = 0; i < n; i++) {
+        scanf("%lf", &x[i]);
+    }
 
     gaussSeidel(A, b, x);
 
     printf("Solution:\n");
-    for (int i = 0; i < N; i++) {
+    for (int i = 0; i < n; i++) {
         printf("x[%d] = %f\n", i, x[i]);
     }
+
+    // Free allocated memory
+    for (int i = 0; i < n; i++) {
+        free(A[i]);
+    }
+    free(A);
+    free(b);
+    free(x);
 
     return 0;
 }
